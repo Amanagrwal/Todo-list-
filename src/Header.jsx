@@ -7,8 +7,8 @@ function Header() {
     <Style>
    <nav>
     <div className='navbar-container'>
-      <img src="Editimage.png" alt="image"className='navbar-image'/>
-      <h3>Aman Mangal</h3>
+      <img src="Paper-notes.png" alt="image"className='navbar-image'/>
+      <h1>Keep</h1>
     </div>
    </nav>
 </Style>
@@ -22,6 +22,8 @@ const Style = Styled.section`
   align-items:center;
   background-color:  #f8eded;
   height: 5rem;
+  justify-content: center;
+  gap:1rem;
 }
 .navbar-image{
   height:  75%;

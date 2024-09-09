@@ -135,4 +135,8 @@ font-size: 25px;
 .edit-btn-container :hover{
   transform: scale(1.04);
 }
-
+.navbar-container{
+  text-align: center;
+  align-items: center;
+ 
+}
