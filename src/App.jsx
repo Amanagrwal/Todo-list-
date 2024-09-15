@@ -1,18 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import NoteForm from './CreatNote';
 import Note from './Note';
 import Footer from './Footer';
 
+
+ const todokey = "todolist";
+
 const App = () => {
-  const [additem, setadditem] = useState([]);
-  const [currentEdit, setCurrentEdit] = useState(null); // New state to track the current note being edited
+  const [additem, setadditem] = useState(()=>{
+    const list = localStorage.getItem(todokey);
+  if(!list) return [];
+    return JSON.parse(list);
+  });
+
+  // const [additem, setadditem] = useState(()=>{
+  //   const rawTodo = localStorage.getItem(todokey);
+  //  return rawTodo ? JSON.parse(rawTodo) : [];
+  // });
+  
+  const [currentEdit, setCurrentEdit] = useState(null); 
 
   const addnote = (note) => {
       setadditem((predata) => {
         return [...predata, note];
       });
     }
+
   const ondelete = (id) => {
     setadditem((preval) =>
       preval.filter((curdata, index)=>{
@@ -23,7 +37,6 @@ const App = () => {
   const editNote = (note, index) => {
     setCurrentEdit({ ...note, index });
   };
-
   const updateNote = (updatedNote) => {
     setadditem((prevNotes) => {
       const notes = [...prevNotes];
@@ -32,6 +45,12 @@ const App = () => {
     });
     setCurrentEdit(null);
   };
+    // add data to localstorage 
+
+    localStorage.setItem(todokey ,JSON.stringify(additem) )
+
+
+
 
   return (
     <>

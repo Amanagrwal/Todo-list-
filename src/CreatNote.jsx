@@ -7,7 +7,7 @@ function NoteForm(props) {
     title: '',
     content: '',
 });
-  // Populate form if editing a note
+  
   useEffect(() => {
     if(props.currentEdit){
       setnote({
@@ -45,6 +45,8 @@ function NoteForm(props) {
     });
   };
 
+
+
   return (
     <MainNote>
       <div className="form">
@@ -65,6 +67,7 @@ function NoteForm(props) {
           onChange={inputEvent}
           placeholder='Write a note...'>
         </textarea>
+        
         <button className='btn' onClick={addOrUpdateEvent}>
           <AddIcon />
         </button>
